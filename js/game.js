@@ -188,8 +188,8 @@ function update() {
     }
 
 
-    ball.x += ball.vx;
-    ball.y += ball.vy;
+    ball.x += ball.vx / 4;
+    ball.y += ball.vy / 4;
 
 
     p1 = paddles[1];
