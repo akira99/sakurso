@@ -1,0 +1,80 @@
+body {
+  background-color: rgb(220, 220, 220);
+}
+.centered-nav {
+  float: none;
+  margin: auto;
+  width: 305px;
+}
+
+.green {
+  background-color: #9b97b2;
+}
+.navbar-default.green .navbar-nav > li > a {
+  color: white;
+}
+.navbar-default.green .navbar-brand {
+  color: white;
+}
+.navbar-default.green {
+  border: 0;
+}
+.container-fluid.header {
+  margin-bottom: 15px;
+}
+.container-fluid.header img {
+  width: 100;
+  margin: auto;
+  display: block;
+}
+.qulebi {
+  border-right: 1px solid white;
+  padding: 0;
+  margin-top: 1px;
+}
+.qulebi:last-of-type {
+  border-right: 0;
+}
+
+.qulebi > a {
+  text-align: center;
+  background-color: #73a6ad;
+  padding: 30px 10px;
+  font-size: 20px;
+  width: 100%;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+.registracia {
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+.qulebi.center {
+  margin: 120px 0 0 0;
+}
+.white {
+  background-color: white;
+  padding: 10px;
+}
+.table-black {
+  margin-bottom: 0;
+}
+.table-black,
+.table-black th,
+.table-black tr,
+.table-black td {
+  border-color: black !important;
+}
+.tr-green {
+  background-color: rgb(202, 255, 202);
+  color: black;
+}
+.tr-red {
+  background-color: rgb(226, 123, 123);
+}
+canvas {
+  margin: auto;
+  display: block;
+}

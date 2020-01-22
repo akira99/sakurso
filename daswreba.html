@@ -1,0 +1,162 @@
+
+<html>
+        <head>
+            <title>
+                საკურსო
+            </title>
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+                integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/chat.css" />
+        
+            <!-- jquery -->
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+                integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+            <!-- bootstrap -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+        
+        
+        </head>
+        
+        <body>
+            <nav class="navbar navbar-default green">
+                <div class="container-fluid green">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Dato</a>
+                    </div>
+        
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav centered-nav">
+                            <li><a href="saitis_shesaxeb.html">საიტის შესახებ</a></li>
+                            <li><a href="gamoyenebuli_masala.html">გამოყენებული მასალა</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right registracia">
+                            <li><a href="#" data-toggle="modal" data-target="#avtorizacia">ავტორიზაცია</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="container-fluid header">
+                <img src="img/Gtu.png">
+            </div>
+            <div class="white">
+            <table class="table table-bordered table-black">
+                <thead>
+                    <tr>
+                        <th>საგანი</th>
+                        <th>I</th>
+                        <th>II</th>
+                        <th>III</th>
+                        <th>IV</th>
+                        <th>V</th>
+                        <th>VI</th>
+                        <th>VII</th>
+                        <th>VIII</th>
+                        <th>IX</th>
+                        <th>X</th>
+                        <th>XI</th>
+                        <th>XII</th>
+                        <th>XIII</th>
+                        <th>XIV</th>
+                        <th>XV</th>
+                        <th>ჯამი</th>
+                    </tr>
+                </thead>
+                <tbody id="daswreba-data">
+        
+                </tbody>
+            </table>
+        </div>
+        
+        <script>
+            function randomPoints(qt) {
+                var points = [];
+                for (var i = 0; i < qt; i++) {
+                    points.push(Math.round(Math.random() * 20) / 10);
+                }
+        
+                return points;
+            }
+        
+            var cxrili = [
+                { name: 'მათემატიკა', points: randomPoints(15) },
+                { name: 'ქართული', points: randomPoints(15) },
+                { name: 'HTML', points: randomPoints(15) },
+                { name: 'CSS', points: randomPoints(15) },
+            ];
+        
+            function template(obj) {
+                var html = '<td>' + obj.name + '</td>';
+                var sum = 0;
+                for (var i = 0; i < obj.points.length; i++) {
+                    html += '<td>' + obj.points[i] + '</td>';
+                    sum += obj.points[i] * 10;
+                }
+                if ((sum / 10) >= 15) {
+                    html = '<tr class="tr-green">' + html;
+                }
+                else if ((sum / 10) < 15) {
+                    html = '<tr class="tr-red">' + html;
+                }
+                else html = '<tr>' + html;
+        
+        
+                html += '<td>' + (sum / 10) + '</td></tr>';
+                return html;
+            }
+        
+            var container = $('#daswreba-data');
+            for (var i = 0; i < cxrili.length; i++) {
+                container.append(template(cxrili[i]));
+            }
+        </script>    
+        
+        <div class="modal fade" id="avtorizacia" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="modalLabel">ავტორიზაცია</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/action_page.php">
+                            <div class="form-group">
+                                <label for="email">სახელი</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">პაროლი</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox"> დამიმახსოვრე</label>
+                            </div>
+                            <button type="submit" class="btn btn-default">დადასტურება</button>
+                            <a href="registracia.html" class="pull-right">რეგისტრაცია</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+        
+        </html>
